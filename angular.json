@@ -25,8 +25,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "codeCoverage": true
@@ -42,12 +41,12 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/ngx-papaparse",
             "index": "examples/index.html",
-            "main": "examples/main.ts",
-            "polyfills": "examples/polyfills.ts",
+            "browser": "examples/main.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "examples/tsconfig.app.json",
             "assets": [
               "examples/favicon.ico",
@@ -56,13 +55,7 @@
             "styles": [
               "examples/styles.css"
             ],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -78,13 +71,7 @@
                   "with": "examples/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
+              "outputHashing": "all"
             }
           },
           "defaultConfiguration": ""
@@ -92,25 +79,24 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "examples:build"
+            "buildTarget": "examples:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "examples:build:production"
+              "buildTarget": "examples:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "examples:build"
+            "buildTarget": "examples:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "examples/test.ts",
-            "polyfills": "examples/polyfills.ts",
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "examples/tsconfig.spec.json",
             "karmaConfig": "examples/karma.conf.js",
             "styles": [
@@ -124,7 +110,7 @@
           }
         }
       }
-    },
+    }
   },
   "cli": {
     "analytics": false

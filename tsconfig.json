@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "module": "es2022",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -15,7 +14,7 @@
     ],
     "paths": {
       "ngx-papaparse": [
-        "dist/ngx-papaparse"
+        "./dist/ngx-papaparse"
       ]
     }
   },
