@@ -1,15 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import * as papaparse from 'papaparse';
 import { ParseResult } from './interfaces/parse-result';
 import { ParseConfig } from './interfaces/parse-config';
 import { UnparseConfig } from './interfaces/unparse-config';
 import { UnparseData } from './interfaces/unparse-data';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Service()
 export class Papa<T = unknown> {
-    public _papa = papaparse;
+    private readonly _papa = papaparse;
 
     public parse(csv: string | Blob, config?: ParseConfig): ParseResult<T> {
         return this._papa.parse(

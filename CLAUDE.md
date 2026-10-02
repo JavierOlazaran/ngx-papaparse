@@ -24,7 +24,7 @@ npm start
 
 To run a single test file, use the Angular CLI directly:
 ```bash
-npx ng test ngx-papaparse --include src/lib/papa.spec.ts --browsers PhantomJS --watch=false
+npx ng test ngx-papaparse --include src/lib/papa.spec.ts --browsers ChromeHeadless --watch=false
 ```
 
 ## Architecture

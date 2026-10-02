@@ -1,11 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  imports: []
 })
 export class AppComponent {
-  title = 'app';
+  readonly title = 'app';
 }
